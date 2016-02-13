@@ -106,9 +106,7 @@ function ToggleAbles(PINs, Bools){
 
 function init(){
   var clk = new Clock();
-  /*
-    Bluetooth
-  */
+  
   var mySerial = Serial2;
 
   var states = {
@@ -119,8 +117,6 @@ function init(){
   };
 
   var pump = new ToggleAbles([A1, LED1], [states.pump, states.led]);
-
-
 
   /*
     set button watch
@@ -133,6 +129,9 @@ function init(){
     { edge : "rising", repeat : true, debounce : 10 }
   );
 
+  /*
+    Bluetooth
+  */
   new Bluetooth(mySerial, B1, [
     'AT',
     'AT+UART=38400,0,0',
